@@ -1,0 +1,45 @@
+BFS Simulation using the tape: aabcc
+
+--pop: State: {state: q1 stack: {top:   size: 0} tape_position: 0}
+	>Transition: [q1->q2 e,e/$] => State: {state: q2 stack: {top: $ size: 1} tape_position: 0}
+--pop: State: {state: q2 stack: {top: $ size: 1} tape_position: 0}
+	>Transition: [q2->q2 a,e/a] => State: {state: q2 stack: {top: a size: 2} tape_position: 1}
+	>Transition: [q2->q3 e,e/e] => State: {state: q3 stack: {top: $ size: 1} tape_position: 0}
+	>Transition: [q2->q5 e,e/e] => State: {state: q5 stack: {top: $ size: 1} tape_position: 0}
+--pop: State: {state: q2 stack: {top: a size: 2} tape_position: 1}
+	>Transition: [q2->q2 a,e/a] => State: {state: q2 stack: {top: a size: 3} tape_position: 2}
+	>Transition: [q2->q3 e,e/e] => State: {state: q3 stack: {top: a size: 2} tape_position: 1}
+	>Transition: [q2->q5 e,e/e] => State: {state: q5 stack: {top: a size: 2} tape_position: 1}
+--pop: State: {state: q3 stack: {top: $ size: 1} tape_position: 0}
+	>Transition: [q3->q4 e,$/e] => State: {state: q4 stack: {top:   size: 0} tape_position: 0}
+--pop: State: {state: q5 stack: {top: $ size: 1} tape_position: 0}
+	>Transition: [q5->q6 e,e/e] => State: {state: q6 stack: {top: $ size: 1} tape_position: 0}
+--pop: State: {state: q2 stack: {top: a size: 3} tape_position: 2}
+	>Transition: [q2->q3 e,e/e] => State: {state: q3 stack: {top: a size: 3} tape_position: 2}
+	>Transition: [q2->q5 e,e/e] => State: {state: q5 stack: {top: a size: 3} tape_position: 2}
+--pop: State: {state: q3 stack: {top: a size: 2} tape_position: 1}
+--pop: State: {state: q5 stack: {top: a size: 2} tape_position: 1}
+	>Transition: [q5->q6 e,e/e] => State: {state: q6 stack: {top: a size: 2} tape_position: 1}
+--pop: State: {state: q4 stack: {top:   size: 0} tape_position: 0}
+--pop: State: {state: q6 stack: {top: $ size: 1} tape_position: 0}
+	>Transition: [q6->q7 e,$/e] => State: {state: q7 stack: {top:   size: 0} tape_position: 0}
+--pop: State: {state: q3 stack: {top: a size: 3} tape_position: 2}
+	>Transition: [q3->q3 b,a/e] => State: {state: q3 stack: {top: a size: 2} tape_position: 3}
+--pop: State: {state: q5 stack: {top: a size: 3} tape_position: 2}
+	>Transition: [q5->q5 b,e/e] => State: {state: q5 stack: {top: a size: 3} tape_position: 3}
+	>Transition: [q5->q6 e,e/e] => State: {state: q6 stack: {top: a size: 3} tape_position: 2}
+--pop: State: {state: q6 stack: {top: a size: 2} tape_position: 1}
+--pop: State: {state: q7 stack: {top:   size: 0} tape_position: 0}
+--pop: State: {state: q3 stack: {top: a size: 2} tape_position: 3}
+--pop: State: {state: q5 stack: {top: a size: 3} tape_position: 3}
+	>Transition: [q5->q6 e,e/e] => State: {state: q6 stack: {top: a size: 3} tape_position: 3}
+--pop: State: {state: q6 stack: {top: a size: 3} tape_position: 2}
+--pop: State: {state: q6 stack: {top: a size: 3} tape_position: 3}
+	>Transition: [q6->q6 c,a/e] => State: {state: q6 stack: {top: a size: 2} tape_position: 4}
+--pop: State: {state: q6 stack: {top: a size: 2} tape_position: 4}
+	>Transition: [q6->q6 c,a/e] => State: {state: q6 stack: {top: $ size: 1} tape_position: 5}
+--pop: State: {state: q6 stack: {top: $ size: 1} tape_position: 5}
+	>Transition: [q6->q7 e,$/e] => State: {state: q7 stack: {top:   size: 0} tape_position: 5}
+-----pop: State: {state: q7 stack: {top:   size: 0} tape_position: 5}
+
+Tape accepted!

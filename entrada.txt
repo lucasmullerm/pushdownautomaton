@@ -1,0 +1,17 @@
+q1 q2 q3 q4 q5 q6 q7
+a b c 
+a
+q1
+q4 q7
+aabcc
+q1 q2 e e $
+q2 q2 a e a
+q2 q3 e e e
+q2 q5 e e e
+q3 q3 b a e
+q3 q4 e $ e
+q4 q4 c e e
+q5 q5 b e e
+q5 q6 e e e
+q6 q6 c a e
+q6 q7 e $ e
