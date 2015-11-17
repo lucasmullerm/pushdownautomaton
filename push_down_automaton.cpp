@@ -18,7 +18,7 @@ vector<pair<PushDownAutomaton::Transition, PushDownAutomaton::SimulationState> >
 {
 	vector<pair<PushDownAutomaton::Transition, PushDownAutomaton::SimulationState> > result;
 
-	for (Transition t : automaton.states_[state])
+	for (auto t : automaton.states_[state])
 	{
 
 
@@ -57,13 +57,13 @@ vector<pair<PushDownAutomaton::Transition, PushDownAutomaton::SimulationState> >
 string PushDownAutomaton::SimulationState::toString()
 {
 	ostringstream oss;
-	oss << "State: {state: " << state << " stack: {top: " << (memory.empty() ? ' ' : memory.top()) << " size: " << memory.size() << "} tape_position: " << tape_position << "}";
+	oss << "State: {state: " << state << ", stack: {top: " << (memory.empty() ? ' ' : memory.top()) << ", size: " << memory.size() << "}, tape_position: " << tape_position << "}";
 	return oss.str();
 }
 
 // class methods
 
-bool PushDownAutomaton::isFinal(string state)
+bool PushDownAutomaton::isFinal(string state) const
 { 
 	return final_states_.count(state) > 0;
 }
@@ -125,7 +125,7 @@ bool PushDownAutomaton::compute(string tape, ofstream& ofs)
 		ofs << "--pop: " << current.toString() << endl;
 #endif // DEBUG
 
-		char head = current.tape_position < (int) tape.size() ? tape[current.tape_position] : epsilon;
+		char head = current.tape_position < static_cast<int>(tape.size()) ? tape[current.tape_position] : epsilon;
 		vector<pair<Transition, SimulationState> > nextStates = current.next(head, ofs);
 		for (auto next : nextStates)
 		{
@@ -152,7 +152,7 @@ bool PushDownAutomaton::compute(string tape, ofstream& ofs)
 	return false;
 }
 
-string PushDownAutomaton::Transition::toString()
+string PushDownAutomaton::Transition::toString() const
 {
 	ostringstream oss;
 	oss << "Transition: [" << from << "->" << to << " " << tape_symbol << "," << pull_symbol << "/" << push_symbol << "]";

@@ -25,9 +25,9 @@ private:
 		char pull_symbol;
 		char push_symbol;
 		Transition(string from, char tape_symbol, char pull_symbol, string to, char push_symbol) 
-			: from(from), tape_symbol(tape_symbol), pull_symbol(pull_symbol), to(to), push_symbol(push_symbol) {
+			: from(from), to(to), tape_symbol(tape_symbol), pull_symbol(pull_symbol), push_symbol(push_symbol) {
 		}
-		string toString();
+		string toString() const;
 	};
 	map<string, vector<Transition> > states_;
 	struct SimulationState
@@ -37,12 +37,12 @@ private:
 		int tape_position;
 		PushDownAutomaton& automaton;
 		SimulationState(string state, stack<char> memory, int tape_position, PushDownAutomaton& pda)
-			: automaton(pda), state(state), memory(memory), tape_position(tape_position) {
+			: state(state), memory(memory), tape_position(tape_position), automaton(pda) {
 		}
 		vector<pair<Transition, SimulationState> > next(char head, ofstream& ofs);
 		string toString();
 	};
-	bool isFinal(string state);
+	bool isFinal(string state) const;
 	char epsilon = 'e';
 	char dollar = '$';
 
